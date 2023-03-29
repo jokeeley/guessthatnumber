@@ -49,10 +49,30 @@ rangeNum = Math.floor (Math.random() * rangeNum) + 1;
 lives = (prompt('Please enter a number of attempts allowed:'));
 console.log(lives);
 
+// Verifying the user's entry for a number of attempts allowed is a number greater than zero and equal to or less than the range they set
 while (!lives || lives < 1 || lives > rangeNum) {
-    lives = parseInt(prompt('Please enter a number of attempts allowed'));
+    lives = parseInt(prompt('Please enter a number of attempts allowed again:'));
+    console.log(lives);
 }
 
+// Asks the user to enter a guess in the range they set
+guess = prompt(`Please enter a guess from 1 to ${rangeNum}. You have ${lives} live(s) left.`);
 
+// Continue looping until the user guesses the correct number or runs out of attempts. NOTE: As loop is set up, the BREAK keyword is run.
+while (true) {
+
+    // Displays the number when a code word is entered
+    if (guess === 'pickle') {
+        alert(`Psssst... the number is ${randomNum}`)
+        guess = prompt(`Please enter a guess from 1 to ${rangeNum}. You have ${lives} live(s) left.`);
+    }
+
+    // Tries to convert the user's guess into a number
+    guess = parseInt (guess)
+
+// remove when needed
+    break;
+}
+// remove when needed
 restartGame = false;
 };
