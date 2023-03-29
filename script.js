@@ -42,6 +42,17 @@ while (!rangeNum || rangeNum < 1) {
 }
 
 
+// Create the random number using the range number entered by the user
+rangeNum = Math.floor (Math.random() * rangeNum) + 1;
+
+// Prompts user to enter a number of attempts (lives) allowed (e.g. the number of guesses)
+lives = (prompt('Please enter a number of attempts allowed:'));
+console.log(lives);
+
+while (!lives || lives < 1 || lives > rangeNum) {
+    lives = parseInt(prompt('Please enter a number of attempts allowed'));
+}
+
 
 restartGame = false;
 };
