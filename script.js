@@ -19,3 +19,7 @@ let guess;
 
 // For storing the user's response to play again or not
 let playAgain;
+
+// Starting alert message
+alert ('Welcome to "GUESS THAT NUMBER!" Please click "OK" to start the game');
+
