@@ -23,3 +23,25 @@ let playAgain;
 // Starting alert message
 alert ('Welcome to "GUESS THAT NUMBER!" Please click "OK" to start the game');
 
+
+
+
+// game restarts as long as restartGame is true
+while (restartGame) {
+// ask user to enter number to set  the upper bound for the random number that will be created.
+rangeNum = prompt('Please enter a maximum number');
+
+// Using parseInt to attempt to convert the user's response into a number value
+rangeNum = parseInt(rangeNum)
+
+// Verifies the user's entry for a range number is a number greater than zero
+// note : all numbers have a default boolean value Except for zero, which is boolean false value by default
+while (!rangeNum || rangeNum < 1) {
+    rangeNum = prompt(enterNumText);
+    rangeNum = parseInt(rangeNum);
+}
+
+
+
+restartGame = false;
+};
