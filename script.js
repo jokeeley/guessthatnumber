@@ -42,7 +42,7 @@ while (!rangeNum || rangeNum < 1) {
 }
 
 // Create the random number using the range number entered by the user
-randomNum = Math.floor (Math.random() * randomNum) + 1;
+randomNum = Math.floor(Math.random() * rangeNum) + 1;
 
 // Prompts user to enter a number of attempts (lives) allowed (e.g. the number of guesses)
 lives = parseInt(prompt(`Please enter a number of attempts allowed:`));
@@ -91,24 +91,24 @@ while (true) {
     } else {
         guess = prompt(`Too high. You have ${lives} lives(s) left.`);
     }
-
-    // Ask the user with option to play again
-    playAgain = prompt('Would you like to play again? Y for yes. N for no.');
-
-    // Loop continues while user submits a valid response 
-    while(true){
-        // Check if the user's answer is no (eg. N for no)
-        if (playAgain.toUpperCase() === 'N'){
-            alert('Thanks for playing!');
-            restartGame = false;
-            break;
-        // Check if the users answer is yes (e.g. Y for yes) 
-        } else if (playAgain.toUpperCase() === 'Y'){
-            // The game restarts
-            break;
-        } else {
-            playAgain = prompt('Please enter Y or N');
-        }
     }
-}
+
+   // Ask the user with option to play again
+   playAgain = prompt('Would you like to play again? Y for yes. N for no.');
+
+   // Loop continues while user submits a valid response 
+   while(true){
+       // Check if the user's answer is no (eg. N for no)
+       if (playAgain.toUpperCase() === 'N'){
+           alert('Thanks for playing!');
+           restartGame = false;
+           break;
+       // Check if the users answer is yes (e.g. Y for yes) 
+       } else if (playAgain.toUpperCase() === 'Y'){
+           // The game restarts
+           break;
+       } else {
+           playAgain = prompt('Please enter Y or N');
+       }
+   }
 };
