@@ -68,11 +68,29 @@ while (true) {
     }
 
     // Tries to convert the user's guess into a number
-    guess = parseInt (guess)
+    guess = parseInt (guess);
 
-// remove when needed
-    break;
+    // Verify the user's guess is a number greater than zero and less than or equal to the range they set.
+    while (!guess || guess < 1 || guess > rangeNum) {
+        guess = parseInt(prompt(`Please enter a number from 1 to ${rangeNum}`))
+    }
+
+    // Remove a life
+    lives--;
+
+    // if else
+    if (guess === randomNum) {
+        alert(`Congratulations!!! You guessed the correct number!!!: ${randomNum}`);
+        break;
+        // Check if user has any attempts left. If not, game ends and the number is displayed to the user.
+    } else if (lives ===0) {
+        alert(`Sorry but you have run out of lives. The number was ${randomNum}`)
+        break;
+    } else if (guess < randomNum) {
+        guess = prompt(`Too low. You have ${lives} lives(s) left.`);
+        // The only other possibility is the user's guess was too high, so the prompt was repeated.
+    } else {
+        guess = prompt(`Too high. You have ${lives} lives(s) left.`);
+    }
 }
-// remove when needed
-restartGame = false;
 };
