@@ -11,7 +11,9 @@ let restartGame = true;
 // For starting the range of number to be guessed
 let rangeNum;
 
+let randomNum;
 // For storing the number of attempts the user has left
+
 let lives;
 
 // For storing the user's guess
@@ -22,8 +24,6 @@ let playAgain;
 
 // Starting alert message
 alert ('Welcome to "GUESS THAT NUMBER!" Please click "OK" to start the game');
-
-
 
 
 // game restarts as long as restartGame is true
@@ -41,18 +41,17 @@ while (!rangeNum || rangeNum < 1) {
     rangeNum = parseInt(rangeNum);
 }
 
-
 // Create the random number using the range number entered by the user
-rangeNum = Math.floor (Math.random() * rangeNum) + 1;
+randomNum = Math.floor (Math.random() * randomNum) + 1;
 
 // Prompts user to enter a number of attempts (lives) allowed (e.g. the number of guesses)
-lives = (prompt('Please enter a number of attempts allowed:'));
+lives = parseInt(prompt(`Please enter a number of attempts allowed:`));
 console.log(lives);
 
 // Verifying the user's entry for a number of attempts allowed is a number greater than zero and equal to or less than the range they set
+
 while (!lives || lives < 1 || lives > rangeNum) {
-    lives = parseInt(prompt('Please enter a number of attempts allowed again:'));
-    console.log(lives);
+    lives = parseInt(prompt(`Please enter a number from 1 to ${rangeNum}`));
 }
 
 // Asks the user to enter a guess in the range they set
@@ -91,6 +90,25 @@ while (true) {
         // The only other possibility is the user's guess was too high, so the prompt was repeated.
     } else {
         guess = prompt(`Too high. You have ${lives} lives(s) left.`);
+    }
+
+    // Ask the user with option to play again
+    playAgain = prompt('Would you like to play again? Y for yes. N for no.');
+
+    // Loop continues while user submits a valid response 
+    while(true){
+        // Check if the user's answer is no (eg. N for no)
+        if (playAgain.toUpperCase() === 'N'){
+            alert('Thanks for playing!');
+            restartGame = false;
+            break;
+        // Check if the users answer is yes (e.g. Y for yes) 
+        } else if (playAgain.toUpperCase() === 'Y'){
+            // The game restarts
+            break;
+        } else {
+            playAgain = prompt('Please enter Y or N');
+        }
     }
 }
 };
